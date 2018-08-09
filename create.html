@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://unpkg.com/formiojs@latest/dist/formio.full.min.css'>
+    <script src='https://unpkg.com/formiojs@latest/dist/formio.full.min.js'></script>
+    <script type='text/javascript'>
+      window.onload = function() {
+        Formio.createForm(document.getElementById('formio'), 'https://szzlvtfijjjcpvw.form.io/ghjghj');
+//         var formio = new Formio('https://szzlvtfijjjcpvw.form.io/ghjghj/submission/5b6c4a0fd08f2474f47c53cf');
+// formio.loadSubmission().then(function(submission) {
+//   console.log(submission);
+// });
+var formio = new Formio('https://szzlvtfijjjcpvw.form.io/ghjghj');
+formio.loadSubmissions().then(function(submissions) {
+  console.log(submissions);
+});
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div id='formio'></div>
+    </div>
+  </body>
+</html>
