@@ -3,23 +3,77 @@
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://unpkg.com/formiojs@latest/dist/formio.full.min.css'>
     <script src='https://unpkg.com/formiojs@latest/dist/formio.full.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
+
     <script type='text/javascript'>
       window.onload = function() {
-        Formio.createForm(document.getElementById('formio'), 'https://szzlvtfijjjcpvw.form.io/ghjghj');
-var formio = new Formio('https://szzlvtfijjjcpvw.form.io/ghjghj');
-formio.loadSubmissions().then(function(submissions) {
-  console.log(submissions);
-});
+        // Formio.createForm(document.getElementById('formio'), 'https://szzlvtfijjjcpvw.form.io/ghjghj');
 
-Formio.currentUser().then(function(user) {
-  console.log(">>>>>",user);
-});
-      };
+
+
+//  repeat data 
+};
+
+   $( document ).ready(function() {
+ var formio = new Formio('https://szzlvtfijjjcpvw.form.io/ghjghj');
+formio.loadSubmissions().then(function(submissions) {
+  console.log("Test")
+  loadBlogPost(submissions);
+});   
+    console.log( "ready!" );
+
+ 
+  });   
+
+
+
+   function loadBlogPost(data){
+
+    console.log(data);
+    console.log(data[0].data.head)
+    for (var i = 0; i < data.length; i++) {
+     $('.blog').append(
+      '<div class="head"> <h1> '+ data[i].data.head +' </h1> </div>'+
+      '<div class="head"> <p> '+ data[i].data.content +' </p> </div>'
+
+      ); 
+
+   }
+
+var newYork    = moment.tz("2018-08-11T15:46:06.246Z", "America/New_York");
+var losAngeles = newYork.clone().tz("America/Los_Angeles");
+var london     = newYork.clone().tz("Europe/London");
+
+
+
+var thai        = newYork.clone().tz("Asia/Bangkok");
+
+
+$('#newYork').html(newYork.format());
+$('#losAngeles').html(losAngeles.format());
+$('#london').html(london.format());
+
+$('#thai').html(thai.format());
+
+
+   }
+
     </script>
   </head>
   <body>
     <div class="container">
-      <div id='formio'></div>
+      <!-- <div id='formio'></div> -->
+      <div class="blog">
+
+      </div>
+<p><strong>newYork:</strong> <span id="newYork"></span></p>
+<p><strong>losAngeles:</strong> <span id="losAngeles"></span></p>
+<p><strong>london:</strong> <span id="london"></span></p>
+<p><strong>Thai:</strong> <span id="thai"></span></p>
+
     </div>
   </body>
 </html>
