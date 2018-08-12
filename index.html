@@ -4,13 +4,10 @@
     <link rel='stylesheet' href='https://unpkg.com/formiojs@latest/dist/formio.full.min.css'>
     <script src='https://unpkg.com/formiojs@latest/dist/formio.full.min.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
-
-
+    <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 <style type="text/css">
   .post{
@@ -96,7 +93,7 @@ function convertTimeZone(oldUtc){
          
          var thaiTimeZone      = formioTimeZone.clone().tz("Asia/Bangkok");
          console.log(thaiTimeZone)
-         return  thaiTimeZone.format();
+         return  thaiTimeZone._locale._weekdays[thaiTimeZone.days()] +' ' +thaiTimeZone.date() +' '+thaiTimeZone._locale._months[thaiTimeZone.months()] + ' ' + thaiTimeZone.year();
 
 }
 
